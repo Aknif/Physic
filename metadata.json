@@ -1,0 +1,8 @@
+{
+  "name": "PhyEM of Electromagnetic Master_Dup",
+  "description": "An interactive scientific learning platform for exploring electromagnetism through virtual simulation, scientific explanation (CER), and peer collaboration.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

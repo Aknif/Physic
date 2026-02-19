@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhyEM: Electromagnetic Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            chakra: ['"Chakra Petch"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #000000;
+      --text-main: #ffffff;
+      --text-sub: #cbd5e1; 
+      --accent: #06b6d4;
+    }
+
+    html:not(.dark) {
+      --bg-color: #ffffff;
+      --text-main: #020617;
+      --text-sub: #334155;
+      --accent: #0891b2;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.5 !important;
+      letter-spacing: 1.5px !important;
+      transition: background-color 0.5s ease, color 0.3s ease;
+      font-size: 18px;
+    }
+
+    p, span, div, h1, h2, h3, h4, h5, h6, button, textarea, input, li {
+      line-height: 1.5 !important;
+      letter-spacing: 1.5px !important;
+    }
+
+    .font-chakra {
+      font-family: 'Chakra Petch', sans-serif;
+    }
+
+    .tracking-standard-15 {
+      letter-spacing: 0.15em !important;
+    }
+
+    /* Soft Ambient Background Drift */
+    .bg-glow-layer {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bg-glow {
+      position: absolute;
+      width: 70vw;
+      height: 70vw;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.12;
+      animation: drift 30s infinite alternate ease-in-out;
+    }
+
+    .glow-1 {
+      top: -10%;
+      left: -10%;
+      background: #3b82f6;
+    }
+
+    .glow-2 {
+      bottom: -10%;
+      right: -10%;
+      background: #8b5cf6;
+      animation-delay: -15s;
+    }
+
+    @keyframes drift {
+      0% { transform: translate(-5%, -5%) scale(1); }
+      100% { transform: translate(10%, 10%) scale(1.1); }
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "xlsx": "https://esm.sh/xlsx@0.18.5"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="dark">
+  <div class="bg-glow-layer">
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+  </div>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
